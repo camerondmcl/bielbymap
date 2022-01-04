@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bielby Enterprises Map</title>
+    <style>
+      #map{
+        height:400px;
+        width:100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+    console.log('first script started')
+      function initMap(){
+        console.log('calling initMap')
+        //map options
+        var options = {
+          zoom:15,
+          center:{lat:42.28407198974168,lng:-83.74644287360547}
+        }
+        //new map
+        var map = new google.maps.Map(document.getElementById('map'), options);
+
+        /*
+        //generic marker icon
+        var iconGeneric = 'https://i.imgur.com/UIWZgSf.png?1';
+        //first pin
+        var marker = new google.maps.Marker({
+          position:{lat:42.27592,lng:-83.744969},
+          map:map,
+          icon:iconGeneric
+        });
+
+        //first info window
+        var infoWindow = new google.maps.InfoWindow({
+          content:'<h4>328 East Jefferson</h4>'
+        });
+        //infowindow listener; change click to mouseover for tooltip on hover
+        marker.addListener('click', function(){
+          infoWindow.open(map, marker);
+        });
+        */
+
+        var iconGeneric = 'https://i.imgur.com/UIWZgSf.png?1';
+        addMarker({
+          coords:{lat:42.27592,lng:-83.744969},
+          iconImage:iconGeneric,
+          title: '328 East Jefferson #1',
+          content:`<h4>328 East Jefferson #1</h4>
+            <p><img src="https://i.imgur.com/EoPvIUr.jpg" alt="" width="300" height="166" /></p>
+            <p>6 bedrooms / 6 bathrooms. <a href="https://www.bielbyenterprises.com/328-east-jefferson-st-1"><u>Click here for more info</u></a>.</p>`,
+          image: 'https://i.imgur.com/EoPvIUr.jpg'
+        });
+        addMarker({
+          coords:{lat:42.27587071364273,lng:-83.74491617265737},
+          iconImage:iconGeneric,
+          title: '328 East Jefferson #2',
+          content:`<h4>328 East Jefferson #2</h4>
+            <p><img src="https://i.imgur.com/p3qXLeX.jpg" alt="" width="300" height="166" /></p>
+            <p>6 bedrooms / 8 bathrooms. <a href="https://www.bielbyenterprises.com/328-east-jefferson-st-2"><u>Click here for more info</u></a>.</p>`,
+          image: 'https://i.imgur.com/p3qXLeX.jpg'
+        });
+        addMarker({
+          coords:{lat:42.27797,lng:-83.74367},
+          iconImage:iconGeneric,
+          title:'411 East William',
+          content:`<h4>411 East William</h4>
+            <p><img src="https://i.imgur.com/XoLiFfu.jpg" alt="" width="300" height="166" /></p>
+            <p>6 bedrooms / 3 bathrooms. <a href="https://www.bielbyenterprises.com/411-east-william-st"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/XoLiFfu.jpg'
+        });
+        addMarker({
+          coords:{lat:42.284515760178095,lng:-83.7388370516729},
+          iconImage:iconGeneric,
+          title:'415 North Ingalls',
+          content:`<h4>415 North Ingalls</h4>
+            <p><img src="https://i.imgur.com/QonziVm.jpg" alt="" width="300" height="166" /></p>
+            <p>3 units. <a href="https://www.bielbyenterprises.com/415-north-ingalls-st"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/QonziVm.jpg'
+        });
+        addMarker({
+          coords:{lat:42.284708451680345,lng:-83.73900864005444},
+          iconImage:iconGeneric,
+          title:'816 East Kingsley',
+          content:`<h4>816 East Kingsley</h4>
+            <p><img src="https://i.imgur.com/CIbS24C.jpg" alt="" width="300" height="166" /></p>
+            <p>6 bedrooms / 3 bathrooms. <a href="https://www.bielbyenterprises.com/816-east-kingsley-st"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/CIbS24C.jpg'
+        });
+        addMarker({
+          coords:{lat:42.28639643064325,lng:-83.7425637266761},
+          iconImage:iconGeneric,
+          title:'418 High Street #1',
+          content:`<h4>418 High Street #1</h4>
+            <p><img src="https://i.imgur.com/CW8XAEh.jpg" alt="" width="300" height="166" /></p>
+            <p>5 bedrooms / 2 bathrooms. <a href="https://www.bielbyenterprises.com/418-high-st-1"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/CW8XAEh.jpg'
+        });
+        addMarker({
+          coords:{lat:42.28633560215529,lng:-83.74253491057105},
+          iconImage:iconGeneric,
+          title:'418 High Street #2',
+          content:`<h4>418 High Street #2</h4>
+            <p><img src="https://i.imgur.com/CW8XAEh.jpg" alt="" width="300" height="166" /></p>
+            <p>6 bedrooms / 4 bathrooms. <a href="https://www.bielbyenterprises.com/418-high-st-2"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/CW8XAEh.jpg'
+        });
+        addMarker({
+          coords:{lat:42.27780628388465,lng:-83.75630015729007},
+          iconImage:iconGeneric,
+          title:'400 5th Street',
+          content:`<h4>400 5th Street</h4>
+            <p><img src="https://i.imgur.com/osrvCCW.jpg" alt="" width="300" height="166" /></p>
+            <p>3 units. <a href="https://www.bielbyenterprises.com/400-5th-st"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/osrvCCW.jpg'
+        });
+        addMarker({
+          coords:{lat:42.27806884785457,lng:-83.75673797393495},
+          iconImage:iconGeneric,
+          title:'713 West Liberty #1',
+          content:`<h4>713 West Liberty #1</h4>
+              <p><img src="https://i.imgur.com/OxOz9qM.png" alt="" width="300" height="166" /></p>
+              <p>4 bedrooms / 4 bathrooms. <a href="https://www.bielbyenterprises.com/713-west-liberty-st-1"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/OxOz9qM.png'
+        });
+        addMarker({
+          coords:{lat:42.27815999039324,lng:-83.75669415673134},
+          iconImage:iconGeneric,
+          title:'713 West Liberty #2',
+          content:`<h4>713 West Liberty #2</h4>
+              <p><img src="https://i.imgur.com/OxOz9qM.png" alt="" width="300" height="166" /></p>
+              <p>Large 1 bedroom / 1 bathroom. <a href="https://www.bielbyenterprises.com/713-west-liberty-st-2"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/OxOz9qM.png'
+        });
+        addMarker({
+          coords:{lat:42.286079600469726,lng:-83.75165569156174},
+          iconImage:iconGeneric,
+          title:'415 Felch',
+          content:`<h4>415 Felch</h4>
+            <p><img src="https://i.imgur.com/u0mlCXM.jpg" alt="" width="300" height="166" /></p>
+            <p>6 bedrooms / 2 bathrooms. <a href="https://www.bielbyenterprises.com/415-felch-st"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/u0mlCXM.jpg'
+        });
+        addMarker({
+          coords:{lat:42.286146552457254,lng:-83.7516529156165},
+          iconImage:iconGeneric,
+          title:'417 Felch',
+          content:`<h4>417 Felch</h4>
+            <p><img src="https://i.imgur.com/u0mlCXM.jpg" alt="" width="300" height="166" /></p>
+            <p>2 bedrooms / 1 bathroom. <a href=https://www.bielbyenterprises.com/417-felch-st"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/u0mlCXM.jpg'
+        });
+        addMarker({
+          coords:{lat:42.286347669860106,lng:-83.7467203471541},
+          iconImage:iconGeneric,
+          title:'628 North 4th Avenue',
+          content:`<h4>628 North 4th Avenue</h4>
+            <p><img src="https://i.imgur.com/DkmAmVn.jpg" alt="" width="300" height="166" /></p>
+            <p># rooms available or whole house. <a href="https://www.bielbyenterprises.com/628-north-4th-ave"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/DkmAmVn.jpg'
+        });
+        addMarker({
+          coords:{lat:42.28644768297161,lng:-83.74668448238339},
+          iconImage:iconGeneric,
+          title:'632 North 4th Avenue',
+          content:`<h4>632 North 4th Avenue</h4>
+            <p><img src="https://i.imgur.com/hzL9BLC.jpg" alt=""/></p>
+            <p>4 units. <a href="https://www.bielbyenterprises.com/632-north-4th-ave"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/hzL9BLC.jpg'
+        });
+        addMarker({
+          coords:{lat:42.28671630530938,lng:-83.74658553762146},
+          iconImage:iconGeneric,
+          title:'642 North 4th Avenue',
+          content:`<h4>642 North 4th Avenue</h4>
+            <p><img src="https://i.imgur.com/sFBm0fE.jpg" alt="" width="300" height="166" /></p>
+            <p>6 bedrooms / 7 bathrooms. <a href="https://www.bielbyenterprises.com/642-north-4th-ave"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/sFBm0fE.jpg'
+        });
+        addMarker({
+          coords:{lat:42.286607557105405,lng:-83.74643208239945},
+          iconImage:iconGeneric,
+          title:'644 North 4th Avenue',
+          content:`<h4>644 North 4th Avenue</h4>
+            <p><img src="https://i.imgur.com/sFBm0fE.jpg" alt="" width="300" height="166" /></p>
+            <p>6 bedrooms / 7 bathrooms. <a href="https://www.bielbyenterprises.com/644-north-4th-ave"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/sFBm0fE.jpg'
+        });
+        addMarker({
+          coords:{lat:42.28590318961264,lng:-83.74652424566042},
+          iconImage:iconGeneric,
+          title:'213 Beakes',
+          content:`<h4>213 Beakes</h4>
+            <p><img src="https://i.imgur.com/nAzuRXw.jpg" alt="" width="300" height="166" /></p>
+            <p>6 bedrooms / 7 bathrooms. <a href="https://www.bielbyenterprises.com/213-beakes-st"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/nAzuRXw.jpg'
+        });
+        addMarker({
+          coords:{lat:42.28626935720125,lng:-83.74557147133898},
+          iconImage:iconGeneric,
+          title:'305 Beakes',
+          content:`<h4>305 Beakes</h4>
+            <p><img src="https://i.imgur.com/U5ZoRp1.jpg" alt="" width="300" height="166" /></p>
+            <p>2 units. <a href="https://www.bielbyenterprises.com/305-beakes-st/"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/U5ZoRp1.jpg'
+        });
+        addMarker({
+          coords:{lat:42.28620168297937,lng:-83.74604138239948},
+          iconImage:iconGeneric,
+          title:'603 North 5th Avenue',
+          content:`<h4>603 North 5th Avenue</h4>
+            <p><img src="https://i.imgur.com/tVSawOj.jpg" alt="" width="300" height="166" /></p>
+            <p>5 bedrooms / 4 bathrooms. <a href="https://www.bielbyenterprises.com/603-north-5th-ave"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/tVSawOj.jpg'
+        });
+        addMarker({
+          coords:{lat:42.28654689869946,lng:-83.74536943577283},
+          iconImage:iconGeneric,
+          title:'616 North 5th Avenue',
+          content:`<h4>616 North 5th Avenue</h4>
+            <p><img src="https://i.imgur.com/zuHGeMo.jpg" alt="" width="300" height="166" /></p>
+            <p>6 bedrooms / 7 bathrooms. <a href="https://www.bielbyenterprises.com/616-north-5th-ave"><u>Click here for more info</u></a>.</p>`,
+            image: 'https://i.imgur.com/zuHGeMo.jpg'
+        });
+
+        //add marker function
+        function addMarker(props){
+          console.log('calling addMarker')
+          var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          icon:props.iconImage
+          });
+
+          //check for title
+          if(props.title){
+            var titleWindow = new google.maps.InfoWindow({
+            	content:props.title
+            });
+
+            //show title when moused over
+            marker.addListener('mouseover', function(){
+            	titleWindow.open(map, marker);
+            });
+
+            //make title go away when unfocused
+            marker.addListener('mouseout', function(){
+            	titleWindow.close(map, marker);
+            });
+          }
+
+          //check for infoWindow
+          if(props.content){
+            //first info window
+            var infoWindow = new google.maps.InfoWindow({
+              content:props.content
+            });
+            //infowindow listener; change click to mouseover for tooltip on hover
+            marker.addListener('click', function(){
+              infoWindow.open(map, marker);
+            });
+          }
+        }
+      }
+    </script>
+    <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2KPm_iyjh5UrGfzmfhNEGTSVEkb71yeU&callback=initMap&libraries=&v=weekly"
+      async
+    ></script> -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBTROq6LuvF_IE1r46-T4AeTSV-0d7my8&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>
